@@ -23,17 +23,6 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
 
   useEffect(() => {
     const onScroll = () => {
-      const currentScroll = window.scrollY;
-
-      // Auto-hide logic
-      if (currentScroll > lastScroll && currentScroll > 80) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
-      setLastScroll(currentScroll);
-
-      // Scroll spy logic
       const scrollPos = window.scrollY + window.innerHeight / 2;
       let found = false;
 
@@ -50,7 +39,14 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
         }
       }
 
-      if (!found) setActiveSection("");
+      // ✅ Force "contact" as active if user scrolled to the bottom
+      const scrollBottom = window.innerHeight + window.scrollY;
+      const pageHeight = document.documentElement.scrollHeight;
+      if (scrollBottom >= pageHeight - 5) {
+        setActiveSection("contact");
+      } else if (!found) {
+        setActiveSection("");
+      }
     };
 
     window.addEventListener("scroll", onScroll);
@@ -62,9 +58,8 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
     <div className="relative">
       <span
         onClick={() => scrollToSection(id)}
-        className={`cursor-pointer hover:underline px-1 ${
-          activeSection === id ? "text-blue-600 dark:text-blue-400 font-semibold" : ""
-        }`}
+        className={`cursor-pointer hover:underline px-1 ${activeSection === id ? "text-blue-600 dark:text-blue-400 font-semibold" : ""
+          }`}
       >
         {label}
       </span>
@@ -80,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
   return (
     <MotionNav
       initial={{ y: 0 }}
-      animate={{ y: isHidden && window.innerWidth < 768 ? "-100%" : "0%" }}      transition={{ duration: 0.3 }}
+      animate={{ y: isHidden && window.innerWidth < 768 ? "-100%" : "0%" }} transition={{ duration: 0.3 }}
       className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4
         backdrop-blur-md bg-white/30 dark:bg-gray-800/30 border-b border-white/10 shadow-sm"
     >
