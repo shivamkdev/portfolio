@@ -6,6 +6,11 @@ const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setDarkMode(systemPrefersDark);
+  }, []);
+
+  useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
     } else {
