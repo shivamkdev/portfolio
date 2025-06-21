@@ -54,7 +54,7 @@ useEffect(() => {
   );
 
   return (
-    <nav className="flex justify-between items-center px-6 py-4 shadow bg-white dark:bg-gray-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4 shadow bg-white dark:bg-gray-800 backdrop-blur bg-opacity-90">
       <h1 className="text-xl font-bold text-blue-700 dark:text-blue-300">Shivam Kumar Dubey</h1>
       <div className="space-x-4 text-sm flex items-center">
         {navLink("projects", "Projects")}
