@@ -52,7 +52,7 @@ const App: React.FC = () => {
         <h3 className="text-2xl font-semibold text-center mb-8">Projects</h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white dark:bg-gray-700 rounded-xl shadow p-6">
-            <img src="/assets/silent-sentinel.png" alt="Silent Sentinel Screenshot" className="w-full max-h-32 object-cover rounded mb-4" />
+            {/* <img src="/assets/silent-sentinel.png" alt="Silent Sentinel Screenshot" className="w-full max-h-32 object-cover rounded mb-4" /> */}
             <h4 className="text-lg font-semibold mb-2">Silent Sentinel</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
               A tool that keeps your system active by simulating user activity silently.
@@ -62,7 +62,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="bg-white dark:bg-gray-700 rounded-xl shadow p-6">
-            <img src="/assets/vetometer.jpeg" alt="Vetometer Screenshot" className="w-full max-h-48 object-cover rounded mb-4" />
+            {/* <img src="/assets/vetometer.jpeg" alt="Vetometer Screenshot" className="w-full max-h-48 object-cover rounded mb-4" /> */}
             <h4 className="text-lg font-semibold mb-2">Vetometer</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
               A Flutter app for creating and voting on live polls. Easy sharing, beautiful UI, and smooth UX.
